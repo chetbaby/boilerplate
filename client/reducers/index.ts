@@ -4,7 +4,7 @@ import imageReducer from './imageReducer';
 
 const reducers = combineReducers({
   user: userReducer,
-  image: imageReducer
+  image: imageReducer,
 });
 
 export default reducers;

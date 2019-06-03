@@ -54,7 +54,7 @@ const Homepage: React.FC<HomepageProps> = props => (
       getSearchImageAsync={props.getSearchImageAsync}
       searchWord={props.searchWord}
     />
-    <Display images={props.images} likedImage={props.likedImage} />
+    <Display results={props.images} likedImage={props.likedImage} />
     <NavBar
       getProfile={props.getProfile}
       userId={props.userId}

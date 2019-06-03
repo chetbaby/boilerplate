@@ -1,12 +1,20 @@
+/* eslint-disable jsx-a11y/alt-text */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
 import React from 'react';
 import { connect } from 'react-redux';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import { actions } from '../actions/actions';
 import { ImageObj } from '../actions/types';
 
-const mapStateToProps = (store: any) => ({
-  modalToggle: store.image.modalToggle,
-  modalURL: store.image.modalURL,
+interface DisplayImageStore {
+  modalToggle: boolean;
+  modalURL: string;
+}
+
+const mapStateToProps = (store: DisplayImageStore) => ({
+  modalToggle: store.modalToggle,
+  modalURL: store.modalURL,
 });
 
 const mapDispatchToProps = (dispatch: any) => ({
@@ -18,13 +26,26 @@ const mapDispatchToProps = (dispatch: any) => ({
   },
 });
 
-const Image = (props: any) => (
+interface ImageProps {
+  modalToggle: boolean;
+  modalURL: string;
+  toggleModal: () => boolean;
+  likedImage: () => ImageObj;
+  image: ImageObj;
+}
+
+interface ChangeObj {
+  modalURL: string;
+  modalToggle: boolean;
+}
+
+const Image = (props: ImageProps) => (
   <div>
     <div
       className="display"
-      onClick={e => {
+      onClick={() => {
         if (props.modalToggle === false) {
-          const changeObj: {} = {
+          const changeObj: ChangeObj = {
             modalURL: props.image.webformatURL,
             modalToggle: true,
           };
@@ -42,7 +63,7 @@ const Image = (props: any) => (
       <img src={props.image.webformatURL} className="displayImage" />
     </div>
     <div className="displayImage">
-      <FavoriteIcon onClick={event => props.likedImage(props.image)} />
+      <FavoriteIcon onClick={() => props.likedImage(props.image)} />
     </div>
   </div>
 );

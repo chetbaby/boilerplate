@@ -10,6 +10,7 @@ export interface ImageObj {
 
 export interface ImageResults {
   results: ImageObj[] | [];
+  // [key: number]: ImageObj;
 }
 
 export interface SaveSearch {

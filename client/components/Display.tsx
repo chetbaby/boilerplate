@@ -1,43 +1,50 @@
+/* eslint-disable jsx-a11y/alt-text */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 import React from 'react';
 import { connect } from 'react-redux';
-// import Card from '@material-ui/core/Card';
-// import { modalToggle } from 'prop-types';
+import { Dispatch } from 'redux';
 import Image from './DisplayImage';
 import { actions } from '../actions/actions';
+import { ImageResults, ImageObj } from '../actions/types';
 
-const mapStateToProps = (store: any) => ({
-  modalToggle: store.image.modalToggle,
-  modalURL: store.image.modalURL,
+interface DisplayStore {
+  modalToggle: boolean;
+  modalURL: string;
+}
+
+const mapStateToProps = (store: DisplayStore) => ({
+  modalToggle: store.modalToggle,
+  modalURL: store.modalURL,
 });
 
-const mapDispatchToProps = (dispatch: any) => ({
+const mapDispatchToProps = (dispatch: Dispatch) => ({
   dropModal: () => {
     dispatch(actions.dropModal());
   },
 });
 
-interface IProps {
-  images: any[];
-  likedImage: any;
+interface DisplayProps {
+  results: ImageObj[];
+  likedImage: ImageResults;
+  modalToggle: boolean;
+  modalURL: string;
+  dropModal: () => boolean;
 }
 
-const Display: React.FC<IProps> = (props: any) => {
+const Display: React.FC<DisplayProps> = (props: DisplayProps) => {
   const imageArr = [];
-  for (let i = 0; i < props.images.length; i++) {
+  const { results, likedImage, dropModal, modalToggle, modalURL } = props;
+  for (let i = 0; i < results.length; i += 1) {
     imageArr.push(
-      <Image
-        image={props.images[i]}
-        key={props.images[i].id}
-        likedImage={props.likedImage}
-      />
+      <Image image={results[i]} key={results[i].id} likedImage={likedImage} />
     );
   }
   let modal;
-  // console.log()
-  if (props.modalToggle) {
+  if (modalToggle) {
     modal = (
-      <div id="modal" onClick={e => props.dropModal()}>
-        <img src={props.modalURL} />
+      <div id="modal" onClick={() => dropModal()}>
+        <img src={modalURL} />
       </div>
     );
   }
