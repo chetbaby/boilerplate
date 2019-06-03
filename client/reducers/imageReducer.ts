@@ -6,7 +6,7 @@ interface Action {
   payload: any;
 }
 
-interface ImageState {
+export interface ImageState {
   myImages: ImageObj[];
   searchImages: ImageObj[];
   modalToggle: boolean;

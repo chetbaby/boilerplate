@@ -17,7 +17,6 @@ const LoginBox: React.FC<Props> = props => (
         const passwordText = document.getElementById(
           'loginBoxPassword'
         ) as HTMLInputElement;
-        // eslint-disable-next-line react/prop-types
         props.loginUser(userNameText.value, passwordText.value);
       }}
     >
