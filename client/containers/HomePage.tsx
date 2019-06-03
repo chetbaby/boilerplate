@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import NavBar from '../components/NavBar';
 import {
@@ -9,11 +9,13 @@ import {
 } from '../actions/actions';
 import Search from '../components/SearchBox';
 import Display from '../components/Display';
+import { DataState } from '../reducers/userReducer';
+import { ImageState } from '../reducers/imageReducer';
 
-const mapStateToProps = (store: any) => ({
-  searchWord: store.user.searchWord,
-  images: store.image.searchImages,
-  userId: store.user.userId,
+const mapStateToProps = (store: DataState & ImageState) => ({
+  searchWord: store.searchWord,
+  images: store.searchImages,
+  userId: store.userId,
 });
 
 const mapDispatchToProps = (dispatch: any) => ({

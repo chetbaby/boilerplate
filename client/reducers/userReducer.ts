@@ -1,13 +1,14 @@
 import { actionTypes } from '../constants/actionTypes';
+import { ImageObj } from '../actions/types';
 
 interface Action {
   type: string;
   payload: any;
 }
 
-interface DataState {
+export interface DataState {
   searchWord: string;
-  userLikes: any[];
+  userLikes: ImageObj[];
   userId: number | null;
   userName: string | null;
 }
@@ -21,7 +22,7 @@ const initialState: DataState = {
 
 const userReducer = (state = initialState, action: Action) => {
   let searchWord: string;
-  let likes: any[];
+  let likes: ImageObj[];
   switch (action.type) {
     case actionTypes.SAVE_SEARCH:
       searchWord = action.payload;
@@ -44,7 +45,7 @@ const userReducer = (state = initialState, action: Action) => {
       };
     case actionTypes.DELETE_IMAGE:
       const copiedState = state.userLikes.slice();
-      for (let i = 0; state.userLikes.length; i++) {
+      for (let i = 0; state.userLikes.length; i += 1) {
         if (state.userLikes[i].id === action.payload.id) {
           copiedState.splice(i, 1);
           break;

@@ -1,25 +1,36 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 import React from 'react';
 import DeleteIcon from '@material-ui/icons/Delete';
-// import Card from '@material-ui/core/Card';
 import { connect } from 'react-redux';
+import Redux from 'redux';
 import { actions } from '../actions/actions';
+import { ImageState } from '../reducers/imageReducer';
 
-const mapStateToProps = (store: any) => ({
-  modalToggle: store.image.modalToggle,
-  modalURL: store.image.modalURL,
+const mapStateToProps = (store: ImageState) => ({
+  modalToggle: store.modalToggle,
+  modalURL: store.modalURL,
 });
 
-const mapDispatchToProps = (dispatch: any) => ({
+const mapDispatchToProps = (dispatch: Redux.Dispatch<any>) => ({
   toggleModal: (event: {}) => {
     dispatch(actions.toggleModal(event));
   },
 });
 
-const ProfileImage = (props: any) => (
+interface ProfileImageProps {
+  modalToggle: boolean;
+  modalURL: string;
+  toggleModal: () => boolean;
+}
+
+const ProfileImage: React.FunctionComponent<ProfileImageProps> = (
+  props: ProfileImageProps
+) => (
   <div>
     <div
       className="display"
-      onClick={e => {
+      onClick={() => {
         if (props.modalToggle === false) {
           const changeObj: {} = {
             modalURL: props.userLikes.webformatURL,
