@@ -3,7 +3,7 @@ const html = require('html-webpack-plugin');
 const workbox = require('workbox-webpack-plugin');
 
 module.exports = {
-  entry: './client/index.tsx',
+  entry: './client/index.js',
   output: {
     path: path.join(__dirname, '/build'),
     filename: './bundle.js',

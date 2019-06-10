@@ -1,9 +1,9 @@
-const config = {
+module.exports = {
   db: {
     name: '',
     userName: '',
     password: '',
-  }
-}
-
-module.exports = config;
+  },
+  PORT: 3000,
+  myURI: '',
+};

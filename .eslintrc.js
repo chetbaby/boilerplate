@@ -26,7 +26,10 @@ module.exports = {
   "extends": [
     "airbnb",
     "prettier",
-    "prettier/react"
+    "prettier/react",
+    // "plugin:@typescript-eslint/recommended",
+    // "prettier/@typescript-eslint",
+    // "plugin:import/typescript"
   ],
   "parser": "babel-eslint",
   "parserOptions": {

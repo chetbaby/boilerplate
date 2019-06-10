@@ -1,20 +1,20 @@
-const Sequelize = require('sequelize');
-const config = require('../config/config');
+import { Pool } from ('pg');
+import { myURI } from ('../config')
 
-module.exports = new Sequelize(
-  config.db.name,
-  config.db.userName,
-  config.db.password,
-  {
-    host: 'localhost',
-    dialect: 'postgres',
-    operatorsAliases: false,
+const pool = new Pool({
+  connectionString: myURI,
+})
 
-    pool: {
-      max: 5,
-      min: 0,
-      acquire: 30000,
-      idle: 10000,
-    },
-  }
-);
+const createDB = (req, res, next) => {
+  const query = ``;
+
+  pool.query(query)
+    .then(res => {
+      console.log('db initialized...')
+    })
+    .catch(err => next(err));
+}
+
+const URI = process.env.PG_URI || myURI;
+
+export { pool, createDB };
