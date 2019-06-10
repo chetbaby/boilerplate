@@ -5,8 +5,10 @@ import App from './components/App';
 import store from './store/store';
 
 render(
-  <Provider store={store}>
+  <div>
+    {/* <Provider store={store}> */}
     <App />
-  </Provider>,
+    {/* </Provider>, */}
+  </div>,
   document.getElementById('root')
 );

@@ -1,3 +1,233 @@
 {
-  "eslint.enable": true
+  {
+    // ***************
+    // * JAVASCRIPT **
+    // ***************
+    "[javascript]": {
+      "editor.formatOnSave": true,
+      "editor.hover.enabled": false,
+      "editor.quickSuggestions": {
+        "other": true,
+        "comments": false,
+        "strings": false,
+        "keywords": true
+      },
+      "editor.defaultFormatter": "vscode.typescript-language-features",
+      "editor.suggest.filteredTypes": {
+        "constant": true,
+        "variable": true,
+        "module": true,
+        "keyword": true,
+        "method": true,
+        "function": true,
+        "property": true,
+        "value": true,
+        "color": true,
+        "unit": true,
+        "interface": false,
+        "words": false,
+        "class": false,
+        "struct": false,
+        "enum": false,
+        "enumMember": false,
+        "typeParameter": false,
+        "reference": false,
+        "operator": false,
+        "snippet": false,
+      }
+    },
+    "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": true,
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "javascript.preferences.importModuleSpecifier": "relative",
+    "javascript.suggestionActions.enabled": true,
+    "javascript.suggest.autoImports": true,
+    "javascript.validate.enable": false,
+    "javascript.suggest.completeJSDocs": false,
+    "javascript.autoClosingTags": true,
+    "javascript.referencesCodeLens.enabled": true,
+    // ***************
+    // **** REACT ****
+    // ***************
+    "[jsx]": {},
+    // ***************
+    // **** PHP ****
+    // ***************
+    "php.suggest.basic": false,
+    // ***************
+    // **** HTML *****
+    // ***************
+    "[html]": {
+      "editor.tabSize": 4,
+      "editor.hover.enabled": false,
+    },
+    "html.format.wrapLineLength": 0,
+    "html.format.indentInnerHtml": true,
+    // ***************
+    // * TYPESCRIPT **
+    // ***************
+    "[typescript]": {
+      "editor.quickSuggestions": {
+        "other": true,
+        "comments": false,
+        "strings": false,
+        "keywords": true
+      },
+      "editor.defaultFormatter": "esbenp.prettier-vscode",
+    },
+    "typescript.suggest.enabled": true,
+    "typescript.suggest.paths": true,
+    "typescript.suggest.completeJSDocs": false,
+    "typescript.suggest.autoImports": true,
+    "typescript.validate.enable": true,
+    "typescript.check.npmIsInstalled": true,
+    "typescript.suggestionActions.enabled": false,
+    "typescript.preferences.quoteStyle": "single",
+    "typescript.suggest.completeFunctionCalls": false,
+    "typescript.autoClosingTags": true,
+    "typescript.preferences.importModuleSpecifier": "non-relative",
+    "typescript.format.insertSpaceAfterOpeningAndBeforeClosingJsxExpressionBraces": true,
+    "typescript.updateImportsOnFileMove.enabled": "always",
+    // ***************
+    // *INTELLISENSE *
+    // ***************
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "vsintellicode.java.completionsEnabled": false,
+    // ***************
+    // ** WORKBENCH **
+    // ***************
+    "window.zoomLevel": 0,
+    "files.simpleDialog.enable": true,
+    "explorer.decorations.colors": false,
+    "explorer.confirmDragAndDrop": false,
+    "breadcrumbs.enabled": true,
+    "workbench.startupEditor": "newUntitledFile",
+    "workbench.activityBar.visible": true,
+    "workbench.tips.enabled": false,
+    "workbench.colorTheme": "Visual Studio Light",
+    "workbench.editor.closeEmptyGroups": false,
+    "workbench.sideBar.location": "right",
+    "workbench.editor.enablePreview": false,
+    "workbench.fontAliasing": "auto",
+    "files.autoSave": "onFocusChange",
+    "files.defaultLanguage": "javascript",
+    "files.enableTrash": false,
+    "files.trimTrailingWhitespace": true,
+    // ***************
+    // *** EDITOR ****
+    // ***************
+    "editor.gotoLocation.multiple": "goto",
+    "npm.enableScriptExplorer": true,
+    "editor.wordWrap": "on",
+    "editor.matchBrackets": false,
+    "editor.lineNumbers": "relative",
+    "editor.formatOnType": true,
+    "editor.fontLigatures": true,
+    "editor.minimap.enabled": false,
+    "editor.hover.sticky": true,
+    "editor.minimap.renderCharacters": false,
+    "editor.parameterHints.enabled": false,
+    "editor.snippetSuggestions": "none",
+    "editor.suggestOnTriggerCharacters": false,
+    "editor.suggest.localityBonus": true,
+    "editor.suggestSelection": "first",
+    "editor.suggest.snippetsPreventQuickSuggestions": false,
+    "editor.suggest.maxVisibleSuggestions": 3,
+    "editor.acceptSuggestionOnCommitCharacter": false,
+    "editor.suggest.filteredTypes": {
+      "keyword": true,
+      "interfaces": false,
+      "words": false
+    },
+    "editor.cursorBlinking": "expand",
+    "editor.mouseWheelScrollSensitivity": 0.5,
+    "editor.fontSize": 16,
+    "editor.formatOnPaste": true,
+    "editor.formatOnSave": true,
+    "editor.fontFamily": "Operator Mono Lig, Fira Code, Input Sans, Menlo, Monaco, monospace",
+    "editor.tabSize": 2,
+    // ***************
+    // *** DEBUGGER **
+    // ***************
+    "debug.toolBarLocation": "docked",
+    // ***************
+    // *** GIT **
+    // ***************
+    "git.enableSmartCommit": true,
+    "merge-conflict.diffViewPosition": "Below",
+    // ***************
+    // *** TERMINAL **
+    // ***************
+    "terminal.integrated.fontFamily": "Operator Mono Lig",
+    "terminal.integrated.fontSize": 14,
+    "terminal.external.osxExec": "fish",
+    "terminal.integrated.shell.osx": "/usr/local/bin/fish",
+    "terminal.integrated.rendererType": "dom",
+    // ***************
+    // *** ESLINT ****
+    // * PRETTIER ****
+    // ***************
+    "eslint.run": "onSave",
+    "eslint.alwaysShowStatus": true,
+    "eslint.autoFixOnSave": true,
+    "eslint.validate": [
+      "javascript",
+      "javascriptreact",
+      {
+        "language": "html",
+        "autoFix": true,
+      },
+      {
+        "language": "typescript",
+        "autoFix": true,
+      },
+      {
+        "language": "typescriptreact",
+        "autoFix": true,
+      }
+    ],
+    "editor.codeActionsOnSave": {},
+    "prettier.eslintIntegration": true,
+    "prettier.jsxBracketSameLine": true,
+    "prettier.trailingComma": "es5",
+    "prettier.disableLanguages": [
+      "javascript",
+      "javascriptreact"
+    ],
+    "prettier.requireConfig": true,
+    // ***************
+    // ** EMMET *
+    // ***************
+    "emmet.includeLanguages": {
+      "javascript": "javascriptreact"
+    },
+    // ***************
+    // ** EXTENSIONS *
+    // ***************
+    "auto-rename-tag.activationOnLanguage": [
+      "html",
+      "xml",
+      "php",
+      "javascript"
+    ],
+    "extensions.ignoreRecommendations": true,
+    "extensions.showRecommendationsOnlyOnDemand": true,
+    "highlight-matching-tag.enabled": true,
+    "highlight-matching-tag.showPath": true,
+    "highlight-matching-tag.highlightFromContent": true,
+    "liveServer.settings.donotShowInfoMsg": true,
+    "bracketPairColorizer.forceIterationColorCycle": true,
+    "bracketPairColorizer.highlightActiveScope": true,
+    "bracketPairColorizer.activeScopeCSS": [
+      "borderStyle : solid",
+      "borderWidth : 5px",
+      "borderColor : {color}; opacity: 0.5",
+      "backgroundColor : {color}"
+    ],
+    "bracketPairColorizer.scopeLineCSS": [
+      "borderStyle : solid",
+      "borderWidth : 2px",
+      "borderColor : {color}; opacity: 0.5"
+    ],
+    "bracketPairColorizer.showBracketsInGutter": true,
+  }
 }

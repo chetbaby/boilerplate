@@ -5,8 +5,8 @@ import Homepage from '../containers/HomePage';
 const App = () => (
   <Router>
     <Switch>
-      {/* <Route exact path="/" component={LoginPage} /> */}
-      <Route path="/home" component={Homepage} />
+      <Route exact path="/" component={Homepage} />
+      {/* <Route path="/home" component={Homepage} /> */}
     </Switch>
   </Router>
 );
