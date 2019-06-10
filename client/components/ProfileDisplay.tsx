@@ -8,9 +8,15 @@ import { actions } from '../actions/actions';
 import { ImageState } from '../reducers/imageReducer';
 import { ImageObj } from '../actions/types';
 
-const mapStateToProps = (store: ImageState) => ({
-  modalToggle: store.modalToggle,
-  modalURL: store.modalURL,
+interface IProps {
+  // myImages: any[];
+  deleteImageAsync: {};
+  userLikes: any[];
+}
+
+const mapStateToProps = (store: any) => ({
+  bool: store.image.modalBool,
+  modalURL: store.image.modalURL,
 });
 
 const mapDispatchToProps = (dispatch: any) => ({
@@ -32,7 +38,7 @@ const ProfileDisplay: React.FC<ProfileDisplayProps> = (
 ) => {
   const { modalToggle, modalURL, dropModal, deleteImageAsync } = props;
   let modal;
-  if (modalToggle) {
+  if (props.bool) {
     modal = (
       <div id="modal" onClick={() => dropModal()}>
         <img src={modalURL} />
@@ -41,7 +47,7 @@ const ProfileDisplay: React.FC<ProfileDisplayProps> = (
   }
   const profileImageArr = [];
 
-  for (let i = 0; i < props.userLikes.length; i += 1) {
+  for (let i = 0; i < props.userLikes.length; i++) {
     profileImageArr.push(
       <ProfileImage
         image={props.userLikes[i]}
@@ -53,7 +59,7 @@ const ProfileDisplay: React.FC<ProfileDisplayProps> = (
   return (
     <div>
       {modal}
-      <div id="profilePage">{profileImageArr}</div>
+      <div className="display">{profileImageArr}</div>
     </div>
   );
 };

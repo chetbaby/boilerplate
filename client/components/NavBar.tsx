@@ -23,9 +23,9 @@ const NavBar: React.FC<NavProps> = props => (
         PROFILE
       </button>
     </Link>
-    <button type="submit" className="navbutton">
-      NOTIFICATIONS
-    </button>
+    <Link to="/profile">
+    <button className="navbutton">NOTIFICATIONS</button>
+    </Link>
     <Link to="/">
       <button
         type="submit"

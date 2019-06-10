@@ -3,67 +3,52 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import React from 'react';
 import { connect } from 'react-redux';
+// import Card from '@material-ui/core/Card';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import { actions } from '../actions/actions';
-import { ImageObj } from '../actions/types';
+// import { withStyles } from '@material-ui/core/styles';
+// import Typography from '@material-ui/core/Typography';
+// import Button from '@material-ui/core/Button';
+// import Popover from '@material-ui/core/Popover';
 
-interface DisplayImageStore {
-  modalToggle: boolean;
-  modalURL: string;
-}
-
-const mapStateToProps = (store: DisplayImageStore) => ({
-  modalToggle: store.modalToggle,
-  modalURL: store.modalURL,
+const mapStateToProps = (store: any) => ({
+  bool: store.image.modalBool,
+  modalURL: store.image.modalURL,
 });
 
 const mapDispatchToProps = (dispatch: any) => ({
-  toggleModal: (event: {}) => {
-    dispatch(actions.toggleModal(event));
+  modalBool: (event: {}) => {
+    dispatch(actions.modalBool(event));
   },
-  likedImage: (event: ImageObj) => {
+  likedImage: (event: {}) => {
     dispatch(actions.likedImage(event));
   },
 });
 
-interface ImageProps {
-  modalToggle: boolean;
-  modalURL: string;
-  toggleModal: () => boolean;
-  likedImage: () => ImageObj;
-  image: ImageObj;
-}
-
-interface ChangeObj {
-  modalURL: string;
-  modalToggle: boolean;
-}
-
-const Image = (props: ImageProps) => (
-  <div>
+const Image = (props: any) => (
+  <div className="displayImage" >
     <div
-      className="display"
-      onClick={() => {
-        if (props.modalToggle === false) {
-          const changeObj: ChangeObj = {
+      onClick={e => {
+        if (props.bool === false) {
+          const changeObj: {} = {
             modalURL: props.image.webformatURL,
-            modalToggle: true,
+            modalBool: true,
           };
-          props.toggleModal(changeObj);
+          props.modalBool(changeObj);
         }
-        if (props.modalToggle === true) {
+        if (props.bool === true) {
           const changeObj: {} = {
             modalURL: '',
-            modalToggle: false,
+            modalBool: false,
           };
-          props.toggleModal(changeObj);
+          props.modalBool(changeObj);
         }
       }}
     >
-      <img src={props.image.webformatURL} className="displayImage" />
+      <img className="image" src={props.image.webformatURL} />
     </div>
-    <div className="displayImage">
-      <FavoriteIcon onClick={() => props.likedImage(props.image)} />
+    <div className="logo">
+      <FavoriteIcon onClick={event => props.likedImage(props.image)} />
     </div>
   </div>
 );

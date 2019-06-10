@@ -3,19 +3,15 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import React from 'react';
 import { connect } from 'react-redux';
-import { Dispatch } from 'redux';
+// import Card from '@material-ui/core/Card';
+// import { bool } from 'prop-types';
 import Image from './DisplayImage';
 import { actions } from '../actions/actions';
 import { ImageResults, ImageObj } from '../actions/types';
 
-interface DisplayStore {
-  modalToggle: boolean;
-  modalURL: string;
-}
-
-const mapStateToProps = (store: DisplayStore) => ({
-  modalToggle: store.modalToggle,
-  modalURL: store.modalURL,
+const mapStateToProps = (store: any) => ({
+  bool: store.image.modalBool,
+  modalURL: store.image.modalURL,
 });
 
 const mapDispatchToProps = (dispatch: Dispatch) => ({
@@ -37,11 +33,12 @@ const Display: React.FC<DisplayProps> = (props: DisplayProps) => {
   const { results, likedImage, dropModal, modalToggle, modalURL } = props;
   for (let i = 0; i < results.length; i += 1) {
     imageArr.push(
-      <Image image={results[i]} key={results[i].id} likedImage={likedImage} />
+      <Image image={props.images[i]} likedImage={props.likedImage} />
     );
   }
   let modal;
-  if (modalToggle) {
+  // console.log()
+  if (props.bool) {
     modal = (
       <div id="modal" onClick={() => dropModal()}>
         <img src={modalURL} />

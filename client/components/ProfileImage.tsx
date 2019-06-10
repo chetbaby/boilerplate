@@ -7,49 +7,40 @@ import Redux from 'redux';
 import { actions } from '../actions/actions';
 import { ImageState } from '../reducers/imageReducer';
 
-const mapStateToProps = (store: ImageState) => ({
-  modalToggle: store.modalToggle,
-  modalURL: store.modalURL,
+const mapStateToProps = (store: any) => ({
+  bool: store.image.modalBool,
+  modalURL: store.image.modalURL,
 });
 
-const mapDispatchToProps = (dispatch: Redux.Dispatch<any>) => ({
-  toggleModal: (event: {}) => {
-    dispatch(actions.toggleModal(event));
+const mapDispatchToProps = (dispatch: any) => ({
+  modalBool: (event: {}) => {
+    dispatch(actions.modalBool(event));
   },
 });
 
-interface ProfileImageProps {
-  modalToggle: boolean;
-  modalURL: string;
-  toggleModal: () => boolean;
-}
-
-const ProfileImage: React.FunctionComponent<ProfileImageProps> = (
-  props: ProfileImageProps
-) => (
-  <div>
+const ProfileImage = (props: any) => (
+  <div className="displayImage">
     <div
-      className="display"
-      onClick={() => {
-        if (props.modalToggle === false) {
+      onClick={e => {
+        if (props.bool === false) {
           const changeObj: {} = {
             modalURL: props.userLikes.webformatURL,
-            modalToggle: true,
+            modalBool: true,
           };
-          props.toggleModal(changeObj);
+          props.modalBool(changeObj);
         }
-        if (props.modalToggle === true) {
+        if (props.bool === true) {
           const changeObj: {} = {
             modalURL: '',
-            modalToggle: false,
+            modalBool: false,
           };
-          props.toggleModal(changeObj);
+          props.modalBool(changeObj);
         }
       }}
     >
-      <img src={props.image.webformatURL} className="displayImage" />
+      <img className="image" src={props.image.webformatURL} />
     </div>
-    <div className="displayImage">
+    <div className="logo">
       <DeleteIcon onClick={event => props.deleteImageAsync(props.image)} />
     </div>
   </div>

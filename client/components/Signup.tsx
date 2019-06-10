@@ -4,10 +4,10 @@ interface Props {
   signupUser: (un: string, pw: string) => void;
 }
 
-const SignupBox: React.FC<Props> = props => (
-  <div>
-    <input type="text" placeholder="username..." id="signupBoxUserName" />
-    <input type="password" placeholder="password..." id="signupBoxPassword" />
+const SignupBox: React.FC<IProps> = props => (
+  <div className="loginContainer">
+    <input type="text" placeholder="username..." id="signupBoxUserName" className="loginBox" />
+    <input type="password" placeholder="password..." id="signupBoxPassword" className="loginBox" />
     <button
       type="submit"
       onClick={() => {
@@ -19,7 +19,7 @@ const SignupBox: React.FC<Props> = props => (
         ) as HTMLInputElement;
         props.signupUser(userNameText.value, passwordText.value);
       }}
-    >
+    className="loginButton">
       Signup
     </button>
   </div>
