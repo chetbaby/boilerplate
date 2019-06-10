@@ -3,9 +3,9 @@ module.exports = {
     "airbnb",
     "prettier",
     "prettier/react",
-    "plugin:@typescript-eslint/recommended",
-    "prettier/@typescript-eslint",
-    "plugin:import/typescript"
+    // "plugin:@typescript-eslint/recommended",
+    // "prettier/@typescript-eslint",
+    // "plugin:import/typescript"
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {

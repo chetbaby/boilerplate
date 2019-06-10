@@ -6,7 +6,7 @@
   "scripts": {
     "start": "NODE_ENV=production node server/server.ts",
     "build": "NODE_ENV=production webpack",
-    "dev": "NODE_ENV=development webpack-dev-server --open & nodemon server/server.ts ",
+    "dev": "NODE_ENV=development webpack-dev-server --open & nodemon server/server.js ",
     "lint": "eslint ."
   },
   "nodemonConfig": {
@@ -19,8 +19,6 @@
   "license": "ISC",
   "dependencies": {
     "@babel/plugin-proposal-class-properties": "^7.4.4",
-    "@material-ui/core": "^3.9.3",
-    "@material-ui/icons": "^3.0.2",
     "@types/pg": "^7.4.14",
     "@types/react": "^16.8.18",
     "@types/react-dom": "^16.8.4",
@@ -29,18 +27,16 @@
     "acorn": "^6.1.1",
     "body-parser": "^1.19.0",
     "express": "^4.17.0",
-    "material-ui": "^0.20.2",
     "pg": "^7.11.0",
     "pg-hstore": "^2.3.2",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-json-view": "^1.19.1",
     "react-redux": "^7.0.3",
     "react-router-dom": "^5.0.0",
     "redux": "^4.0.1",
+    "redux-devtools-extension": "^2.13.8",
     "redux-thunk": "^2.3.0",
-    "reduxie": "^1.0.4",
     "sequelize": "^5.8.6",
     "ts-node": "^8.1.0"
   },
@@ -72,9 +68,9 @@
     "eslint-plugin-react-hooks": "^1.6.0",
     "http-proxy-middleware": "^0.19.1",
     "isomorphic-fetch": "^2.2.1",
+    "morgan": "^1.9.1",
     "nodemon": "^1.19.0",
     "prettier": "^1.17.1",
-    "redux-devtools-extension": "^2.13.8",
     "source-map-loader": "^0.2.4",
     "style-loader": "^0.23.1",
     "ts-loader": "^6.0.1",
